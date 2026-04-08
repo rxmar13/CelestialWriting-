@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing About Celestial Objects | Year 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --space-deep: #0d1b2a;
+    --space-mid: #1a2f4a;
+    --gold: #f5c842;
+    --gold-light: #fef3c7;
+    --teal: #0d9488;
+    --teal-light: #ccfbf1;
+    --purple: #7c3aed;
+    --purple-light: #ede9fe;
+    --coral: #dc2626;
+    --coral-light: #fee2e2;
+    --green: #15803d;
+    --green-light: #dcfce7;
+    --grey-light: #f8fafc;
+    --grey-med: #e2e8f0;
+    --grey-dark: #64748b;
+    --text: #0f172a;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--space-deep);
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+  .wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 36px 16px 24px;
+  }
+  .stars { font-size: 1.3rem; letter-spacing: 0.4rem; opacity: 0.6; margin-bottom: 10px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(245,200,66,0.15);
+    border: 1px solid rgba(245,200,66,0.4);
+    color: var(--gold);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 14px; border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    line-height: 1.1; margin-bottom: 6px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: 0.9rem; color: #94a3b8; }
+
+  /* TABS */
+  .tab-nav {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    justify-content: center;
+    padding: 0 8px; margin-bottom: 20px;
+  }
+  .tab-btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px; font-weight: 700;
+    padding: 8px 16px; border-radius: 20px;
+    border: 1.5px solid rgba(255,255,255,0.1);
+    background: #162236; color: #94a3b8;
+    cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .tab-btn:hover { border-color: rgba(255,255,255,0.25); color: var(--white); }
+  .tab-btn.active { background: var(--gold); color: var(--space-deep); border-color: var(--gold); }
+
+  /* SECTIONS */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* CARDS */
+  .card {
+    background: #162236;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 16px; margin-bottom: 12px;
+  }
+  .card-title {
+    font-weight: 800; font-size: 1rem;
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px; margin-bottom: 12px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; margin-bottom: 12px;
+  }
+
+  /* PILLS */
+  .pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 700;
+  }
+  .pill-gold { background: rgba(245,200,66,0.15); color: var(--gold); border: 1px solid rgba(245,200,66,0.35); }
+  .pill-teal { background: rgba(13,148,136,0.15); color: #2dd4bf; border: 1px solid rgba(13,148,136,0.35); }
+  .pill-purple { background: rgba(124,58,237,0.15); color: #a78bfa; border: 1px solid rgba(124,58,237,0.35); }
+  .pill-coral { background: rgba(220,38,38,0.15); color: #f87171; border: 1px solid rgba(220,38,38,0.35); }
+  .pill-green { background: rgba(21,128,61,0.15); color: #4ade80; border: 1px solid rgba(21,128,61,0.35); }
+
+  /* EXAMPLE BOXES */
+  .example-box {
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 12px;
+    font-size: 0.9rem; line-height: 1.7;
+    margin-top: 6px;
+  }
+  .upgrade-box {
+    background: rgba(13,148,136,0.08);
+    border-left: 3px solid #2dd4bf;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 12px;
+    font-size: 0.9rem; line-height: 1.7;
+    color: #ccfbf1; margin-top: 6px;
+  }
+
+  .label {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: #94a3b8; margin-bottom: 5px; margin-top: 8px;
+  }
+
+  /* WORD CHIPS */
+  .word-bank { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  .word-chip {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 7px; padding: 3px 9px;
+    font-size: 12px; font-weight: 600; color: var(--white);
+  }
+  .word-chip.purple { background: rgba(124,58,237,0.18); border-color: rgba(124,58,237,0.4); color: #a78bfa; font-size: 14px; font-weight: 800; padding: 5px 14px; border-radius: 20px; }
+
+  /* HIGHLIGHT */
+  .hl-gold { color: var(--gold); font-weight: 800; }
+  .hl-teal { color: #2dd4bf; font-weight: 800; }
+  .hl-purple { color: #a78bfa; font-weight: 800; }
+
+  /* OBJECTS GRID */
+  .object-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px; margin-bottom: 12px;
+  }
+  .object-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 14px 10px;
+    text-align: center; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .object-card:hover, .object-card.selected {
+    border-color: var(--gold);
+    background: rgba(245,200,66,0.08);
+  }
+  .object-icon { font-size: 2rem; margin-bottom: 5px; }
+  .object-name { font-weight: 800; font-size: 0.85rem; margin-bottom: 3px; }
+  .object-fact { font-size: 0.7rem; color: #94a3b8; line-height: 1.4; }
+
+  .object-detail {
+    display: none;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(245,200,66,0.3);
+    border-radius: 12px; padding: 16px;
+    margin-bottom: 12px;
+  }
+  .object-detail.show { display: block; }
+  .object-detail h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .fact-list { list-style: none; }
+  .fact-list li {
+    font-size: 0.88rem; padding: 3px 0 3px 18px;
+    position: relative; line-height: 1.5;
+    color: var(--white);
+  }
+  .fact-list li::before {
+    content: '★'; position: absolute; left: 0;
+    color: var(--gold); font-size: 9px; top: 7px;
+  }
+  .divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 12px 0; }
+
+  /* SENTENCE BUILDER */
+  .sentence-builder {
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px; padding: 12px;
+    font-size: 0.9rem; line-height: 2;
+  }
+  .builder-row {
+    display: flex; align-items: center;
+    flex-wrap: wrap; gap: 8px; padding: 6px 0;
+  }
+  .builder-block {
+    padding: 4px 10px; border-radius: 8px;
+    font-size: 0.85rem;
+  }
+  .bb-teal { background: rgba(13,148,136,0.18); color: #2dd4bf; }
+  .bb-purple { background: rgba(124,58,237,0.18); color: #a78bfa; }
+  .sep { font-size: 1.2rem; color: #94a3b8; }
+
+  /* STEP ROWS */
+  .step-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .step-row:last-child { border-bottom: none; }
+  .step-badge {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--gold); color: var(--space-deep);
+    font-weight: 800; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-label { font-weight: 800; font-size: 0.95rem; margin-bottom: 2px; }
+  .step-desc { font-size: 0.82rem; color: #94a3b8; line-height: 1.5; }
+
+  /* CHECKLIST */
+  .checklist-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.88rem; cursor: pointer;
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .check-circle {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2);
+    flex-shrink: 0; display: flex;
+    align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .check-circle.checked { background: #4ade80; border-color: #4ade80; }
+  .check-circle.checked::after {
+    content: '';
+    width: 5px; height: 9px;
+    border: 2px solid white;
+    border-top: none; border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+    display: block;
+  }
+  .checklist-item.done span { text-decoration: line-through; color: #94a3b8; }
+
+  /* UPGRADE TABLE */
+  .upgrade-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .upgrade-table td { padding: 6px 8px; font-size: 0.85rem; vertical-align: middle; }
+  .upgrade-table tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .upgrade-table tr:last-child { border-bottom: none; }
+  .boring-word { color: #f87171; font-style: italic; font-weight: 700; }
+  .arrow { color: #94a3b8; text-align: center; }
+
+  /* TRY IT */
+  .try-it {
+    background: rgba(13,148,136,0.06);
+    border: 1px dashed rgba(13,148,136,0.35);
+    border-radius: 10px; padding: 12px 14px; margin-top: 10px;
+  }
+  .try-it .label { color: #2dd4bf; }
+  .try-it p { font-size: 0.82rem; color: #94a3b8; margin: 4px 0 8px; }
+  .write-line {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    height: 28px; margin: 5px 0;
+  }
+
+  /* BIG ARROW */
+  .big-arrow { text-align: center; font-size: 1.2rem; color: #94a3b8; padding: 3px 0; }
+
+  /* CONJUNCTION ROW */
+  .conjunction-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin: 8px 0; justify-content: center;
+  }
+
+  /* COLOUR SECTION HEADERS */
+  .sec-header {
+    border-radius: 10px; padding: 10px 16px;
+    margin-bottom: 14px; text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+  }
+  .sh-teal { background: var(--teal); }
+  .sh-purple { background: var(--purple); }
+  .sh-coral { background: var(--coral); }
+  .sh-navy { background: var(--space-mid); border: 1px solid rgba(255,255,255,0.15); }
+  .sh-green { background: var(--green); }
+  .sh-gold { background: #b45309; }
+
+  /* WHAT'S INSIDE ROW */
+  .contents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px; margin-top: 10px;
+  }
+  .contents-item {
+    border-radius: 10px; padding: 10px;
+    text-align: center;
+  }
+  .contents-num { font-family: 'Fredoka One', cursive; font-size: 1.4rem; }
+  .contents-name { font-weight: 800; font-size: 0.8rem; margin: 3px 0; }
+  .contents-desc { font-size: 0.7rem; opacity: 0.8; line-height: 1.3; }
+
+  /* MODEL PARAGRAPH */
+  .model-para {
+    background: rgba(245,200,66,0.06);
+    border: 1px solid rgba(245,200,66,0.25);
+    border-radius: 10px; padding: 14px;
+    font-size: 0.9rem; line-height: 1.9;
+    margin: 8px 0;
+  }
+
+  /* PROGRESS */
+  .progress-bar-wrap {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px; height: 8px;
+    margin: 8px 0 4px; overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%; border-radius: 20px;
+    background: #4ade80;
+    transition: width 0.4s ease;
+  }
+  .progress-label { font-size: 11px; color: #94a3b8; text-align: right; }
+
+  @media (max-width: 480px) {
+    .tab-btn { font-size: 11px; padding: 7px 12px; }
+    .hero h1 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+    <div class="hero-badge">Year 2 Writing</div>
+    <h1>Writing About <span>Celestial Objects</span></h1>
+    <p>Your guide to writing an information report</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('objects')" id="tab-objects">🌌 Celestial Objects</button>
+    <button class="tab-btn" onclick="showTab('sentences')" id="tab-sentences">✏️ Sentences</button>
+    <button class="tab-btn" onclick="showTab('noun')" id="tab-noun">🔵 Noun Groups</button>
+    <button class="tab-btn" onclick="showTab('verb')" id="tab-verb">🟡 Verb Groups</button>
+    <button class="tab-btn" onclick="showTab('paragraph')" id="tab-paragraph">📝 Paragraphs</button>
+    <button class="tab-btn" onclick="showTab('editing')" id="tab-editing">✅ Editing</button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 1: CELESTIAL OBJECTS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section active" id="section-objects">
+    <div class="sec-header sh-teal">🌌 Celestial Objects</div>
+    <p style="font-size:0.85rem;color:#94a3b8;margin-bottom:12px;">Tap a celestial object to see key facts and words for your writing.</p>
+
+    <div class="object-grid">
+      <div class="object-card" onclick="selectObject('sun',this)">
+        <div class="object-icon">☀️</div>
+        <div class="object-name">The Sun</div>
+        <div class="object-fact">Our closest star</div>
+      </div>
+      <div class="object-card" onclick="selectObject('moon',this)">
+        <div class="object-icon">🌕</div>
+        <div class="object-name">The Moon</div>
+        <div class="object-fact">Earth's natural satellite</div>
+      </div>
+      <div class="object-card" onclick="selectObject('planets',this)">
+        <div class="object-icon">🪐</div>
+        <div class="object-name">Planets</div>
+        <div class="object-fact">Orbit around the Sun</div>
+      </div>
+      <div class="object-card" onclick="selectObject('stars',this)">
+        <div class="object-icon">⭐</div>
+        <div class="object-name">Stars</div>
+        <div class="object-fact">Balls of burning gas</div>
+      </div>
+      <div class="object-card" onclick="selectObject('comets',this)">
+        <div class="object-icon">☄️</div>
+        <div class="object-name">Comets</div>
+        <div class="object-fact">Ice and dust in space</div>
+      </div>
+      <div class="object-card" onclick="selectObject('galaxies',this)">
+        <div class="object-icon">🌀</div>
+        <div class="object-name">Galaxies</div>
+        <div class="object-fact">Millions of stars together</div>
+      </div>
+    </div>
+
+    <div class="object-detail" id="detail-sun">
+      <h3>☀️ The Sun</h3>
+      <ul class="fact-list">
+        <li>The Sun is a giant star at the centre of our solar system.</li>
+        <li>It gives Earth heat and light.</li>
+        <li>The Sun is so big that one million Earths could fit inside it.</li>
+        <li>It is about 150 million kilometres from Earth.</li>
+        <li>The surface of the Sun is called the photosphere.</li>
+      </ul>
+      <hr class="divider">
+      <div class="label">Words for your writing</div>
+      <div class="word-bank">
+        <span class="word-chip">blazing</span><span class="word-chip">enormous</span><span class="word-chip">glowing</span><span class="word-chip">burning</span><span class="word-chip">scorching</span><span class="word-chip">radiates</span><span class="word-chip">shines</span><span class="word-chip">warms</span><span class="word-chip">solar</span><span class="word-chip">energy</span>
+      </div>
+    </div>
+
+    <div class="object-detail" id="detail-moon">
+      <h3>🌕 The Moon</h3>
+      <ul class="fact-list">
+        <li>The Moon orbits Earth every 27 days.</li>
+        <li>It is covered in craters, mountains and dust.</li>
+        <li>We can see the Moon because sunlight reflects off it.</li>
+        <li>The Moon has different phases: new moon, crescent, half and full moon.</li>
+        <li>There is no air or water on the Moon.</li>
+      </ul>
+      <hr class="divider">
+      <div class="label">Words for your writing</div>
+      <div class="word-bank">
+        <span class="word-chip">silver</span><span class="word-chip">glowing</span><span class="word-chip">rocky</span><span class="word-chip">craters</span><span class="word-chip">orbits</span><span class="word-chip">phases</span><span class="word-chip">reflects</span><span class="word-chip">dusty</span><span class="word-chip">surface</span>
+      </div>
+    </div>
+
+    <div class="object-detail" id="detail-planets">
+      <h3>🪐 Planets</h3>
+      <ul class="fact-list">
+        <li>There are eight planets in our solar system.</li>
+        <li>All planets orbit the Sun.</li>
+        <li>The four inner planets are rocky: Mercury, Venus, Earth and Mars.</li>
+        <li>The four outer planets are gas giants: Jupiter, Saturn, Uranus and Neptune.</li>
+        <li>Saturn has beautiful rings made of ice and rock.</li>
+      </ul>
+      <hr class="divider">
+      <div class="label">Words for your writing</div>
+      <div class="word-bank">
+        <span class="word-chip">orbit</span><span class="word-chip">rocky</span><span class="word-chip">gaseous</span><span class="word-chip">massive</span><span class="word-chip">icy rings</span><span class="word-chip">atmosphere</span><span class="word-chip">spins</span><span class="word-chip">travels</span>
+      </div>
+    </div>
+
+    <div class="object-detail" id="detail-stars">
+      <h3>⭐ Stars</h3>
+      <ul class="fact-list">
+        <li>Stars are giant balls of hot, glowing gas.</li>
+        <li>They make their own light and heat.</li>
+        <li>Our Sun is the closest star to Earth.</li>
+        <li>Stars come in different colours: blue, white, yellow and red.</li>
+        <li>Groups of stars are called constellations.</li>
+      </ul>
+      <hr class="divider">
+      <div class="label">Words for your writing</div>
+      <div class="word-bank">
+        <span class="word-chip">twinkling</span><span class="word-chip">distant</span><span class="word-chip">brilliant</span><span class="word-chip">burning</span><span class="word-chip">glowing</span><span class="word-chip">constellation</span><span class="word-chip">sparkles</span><span class="word-chip">shines</span>
+      </div>
+    </div>
+
+    <div class="object-detail" id="detail-comets">
+      <h3>☄️ Comets</h3>
+      <ul class="fact-list">
+        <li>Comets are made of ice, dust and rock.</li>
+        <li>They travel through space in a long oval orbit.</li>
+        <li>As they get near the Sun, they form a bright glowing tail.</li>
+        <li>The tail can be millions of kilometres long.</li>
+        <li>Halley's Comet visits our solar system every 75 years.</li>
+      </ul>
+      <hr class="divider">
+      <div class="label">Words for your writing</div>
+      <div class="word-bank">
+        <span class="word-chip">icy</span><span class="word-chip">dusty</span><span class="word-chip">streaking</span><span class="word-chip">blazing tail</span><span class="word-chip">glowing</span><span class="word-chip">hurtles</span><span class="word-chip">travels</span><span class="word-chip">orbit</span>
+      </div>
+    </div>
+
+    <div class="object-detail" id="detail-galaxies">
+      <h3>🌀 Galaxies</h3>
+      <ul class="fact-list">
+        <li>A galaxy is a huge collection of millions of stars.</li>
+        <li>Our galaxy is called the Milky Way.</li>
+        <li>Galaxies can be spiral, elliptical or irregular in shape.</li>
+        <li>There are billions of galaxies in the universe.</li>
+        <li>The Milky Way is so wide it takes light 100,000 years to cross it.</li>
+      </ul>
+      <hr class="divider">
+      <div class="label">Words for your writing</div>
+      <div class="word-bank">
+        <span class="word-chip">spiral</span><span class="word-chip">enormous</span><span class="word-chip">distant</span><span class="word-chip">vast</span><span class="word-chip">swirling</span><span class="word-chip">stretches</span><span class="word-chip">contains</span><span class="word-chip">universe</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 2: SENTENCES -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section" id="section-sentences">
+    <div class="sec-header sh-purple">✏️ Simple &amp; Compound Sentences</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="pill pill-teal">Simple</span></div>
+        <div class="label">What is it?</div>
+        <p style="font-size:0.88rem;line-height:1.6;margin:4px 0 6px;">One complete idea. One subject + one action.</p>
+        <div class="label">Examples</div>
+        <div class="example-box">
+          The <span class="hl-gold">Moon</span> is rocky.<br>
+          The <span class="hl-gold">Sun</span> shines brightly.<br>
+          Comets have <span class="hl-gold">icy tails</span>.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="pill pill-purple">Compound</span></div>
+        <div class="label">What is it?</div>
+        <p style="font-size:0.88rem;line-height:1.6;margin:4px 0 6px;">Two ideas joined by a <strong>conjunction</strong>.</p>
+        <div class="label">Examples</div>
+        <div class="example-box">
+          The Moon is rocky <span class="hl-purple">and</span> it has craters.<br>
+          Stars are far away <span class="hl-purple">but</span> we can see them.<br>
+          Comets melt <span class="hl-purple">so</span> they form a tail.
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔗 Conjunctions to use</div>
+      <div class="conjunction-row">
+        <span class="word-chip purple">and</span>
+        <span class="word-chip purple">but</span>
+        <span class="word-chip purple">so</span>
+        <span class="word-chip purple">or</span>
+        <span class="word-chip purple">because</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">⚡ How to build a compound sentence</div>
+      <div class="sentence-builder">
+        <div class="builder-row">
+          <span class="builder-block bb-teal">Simple sentence 1</span>
+          <span class="sep">+</span>
+          <span class="builder-block bb-purple">conjunction</span>
+          <span class="sep">+</span>
+          <span class="builder-block bb-teal">Simple sentence 2</span>
+        </div>
+        <hr class="divider">
+        <p style="font-size:0.85rem;color:#94a3b8;margin-bottom:4px;">Examples:</p>
+        <p style="font-size:0.9rem;"><span class="hl-teal">The Sun is a star</span> <span class="hl-purple">and</span> <span class="hl-teal">it gives us light.</span></p>
+        <p style="font-size:0.9rem;margin-top:4px;"><span class="hl-teal">The Moon is rocky</span> <span class="hl-purple">but</span> <span class="hl-teal">it has no air.</span></p>
+      </div>
+    </div>
+
+    <div class="try-it">
+      <div class="label">Your turn! Write your sentences below</div>
+      <p>Write 2 simple sentences, then join them with a conjunction.</p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 3: NOUN GROUPS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section" id="section-noun">
+    <div class="sec-header sh-coral">🔵 Noun Groups</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">What is a noun?</div>
+        <p style="font-size:0.88rem;line-height:1.6;">A noun is a <strong>person, place or thing</strong>.</p>
+        <div class="word-bank" style="margin-top:8px;">
+          <span class="word-chip">Moon</span><span class="word-chip">star</span><span class="word-chip">planet</span><span class="word-chip">comet</span><span class="word-chip">crater</span><span class="word-chip">tail</span><span class="word-chip">Sun</span><span class="word-chip">orbit</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">What is a noun group?</div>
+        <p style="font-size:0.88rem;line-height:1.6;">A noun <strong>plus describing words</strong> to add detail.</p>
+        <div class="example-box" style="margin-top:6px;">
+          <span class="hl-gold">noun</span> → <span class="hl-teal">adjective + noun</span><br>
+          star → a <span class="hl-teal">brilliant, distant</span> star
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">⚡ Basic → Better</div>
+      <div class="label">Basic sentence</div>
+      <div class="example-box">The Moon has craters.</div>
+      <div class="big-arrow">↓ add a noun group ↓</div>
+      <div class="label">Better sentence</div>
+      <div class="upgrade-box">The <span class="hl-gold">rocky, grey Moon</span> has deep craters.</div>
+      <hr class="divider">
+      <div class="label">Basic sentence</div>
+      <div class="example-box">The Sun gives us light.</div>
+      <div class="big-arrow">↓ add a noun group ↓</div>
+      <div class="label">Better sentence</div>
+      <div class="upgrade-box">The <span class="hl-gold">blazing, enormous Sun</span> gives us light.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🌟 Describing words for space</div>
+      <div class="grid-3" style="margin-top:8px;">
+        <div>
+          <div class="label">Size</div>
+          <div class="word-bank"><span class="word-chip">enormous</span><span class="word-chip">tiny</span><span class="word-chip">vast</span><span class="word-chip">giant</span></div>
+        </div>
+        <div>
+          <div class="label">Colour</div>
+          <div class="word-bank"><span class="word-chip">silver</span><span class="word-chip">blazing</span><span class="word-chip">golden</span><span class="word-chip">grey</span></div>
+        </div>
+        <div>
+          <div class="label">Feel / look</div>
+          <div class="word-bank"><span class="word-chip">rocky</span><span class="word-chip">icy</span><span class="word-chip">dusty</span><span class="word-chip">glowing</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it">
+      <div class="label">Your turn! Build a noun group</div>
+      <p>Choose a celestial object and add two describing words. Write a sentence using your noun group.</p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 4: VERB GROUPS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section" id="section-verb">
+    <div class="sec-header sh-navy">🟡 Verb Groups</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">What is a verb?</div>
+        <p style="font-size:0.88rem;line-height:1.6;">A verb is an <strong>action or doing word</strong>.</p>
+        <div class="word-bank" style="margin-top:8px;">
+          <span class="word-chip">orbits</span><span class="word-chip">shines</span><span class="word-chip">burns</span><span class="word-chip">spins</span><span class="word-chip">glows</span><span class="word-chip">travels</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">What is a verb group?</div>
+        <p style="font-size:0.88rem;line-height:1.6;">A verb <strong>plus extra words</strong> to describe how, when or where.</p>
+        <div class="example-box" style="margin-top:6px;">
+          <span class="hl-gold">verb</span> → <span class="hl-teal">verb + how/when/where</span><br>
+          shines → shines <span class="hl-teal">brilliantly every day</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">⚡ Basic → Better</div>
+      <div class="label">Basic sentence</div>
+      <div class="example-box">The Earth moves.</div>
+      <div class="big-arrow">↓ add a verb group ↓</div>
+      <div class="label">Better sentence</div>
+      <div class="upgrade-box">The Earth <span class="hl-gold">spins slowly and travels around the Sun</span>.</div>
+      <hr class="divider">
+      <div class="label">Basic sentence</div>
+      <div class="example-box">A comet goes through space.</div>
+      <div class="big-arrow">↓ add a verb group ↓</div>
+      <div class="label">Better sentence</div>
+      <div class="upgrade-box">A comet <span class="hl-gold">hurtles through space at incredible speed</span>.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🚀 Action words for space writing</div>
+      <div class="grid-3" style="margin-top:8px;">
+        <div>
+          <div class="label">Movement</div>
+          <div class="word-bank"><span class="word-chip">orbits</span><span class="word-chip">hurtles</span><span class="word-chip">travels</span><span class="word-chip">spins</span></div>
+        </div>
+        <div>
+          <div class="label">Light / heat</div>
+          <div class="word-bank"><span class="word-chip">blazes</span><span class="word-chip">glows</span><span class="word-chip">radiates</span><span class="word-chip">shines</span></div>
+        </div>
+        <div>
+          <div class="label">How? (adverbs)</div>
+          <div class="word-bank"><span class="word-chip">slowly</span><span class="word-chip">constantly</span><span class="word-chip">brightly</span><span class="word-chip">steadily</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it">
+      <div class="label">Your turn! Build a verb group</div>
+      <p>Pick a verb and add words to describe how, when or where. Write a sentence.</p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 5: PARAGRAPHS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section" id="section-paragraph">
+    <div class="sec-header sh-green">📝 Writing a Paragraph</div>
+
+    <div class="grid-3">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:1.6rem;margin-bottom:4px;">🎯</div>
+        <div style="font-weight:800;font-size:0.88rem;margin-bottom:3px;">On topic</div>
+        <div style="font-size:0.75rem;color:#94a3b8;">All sentences about the same object</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:1.6rem;margin-bottom:4px;">🌈</div>
+        <div style="font-weight:800;font-size:0.88rem;margin-bottom:3px;">Interesting words</div>
+        <div style="font-size:0.75rem;color:#94a3b8;">Noun groups and verb groups</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:1.6rem;margin-bottom:4px;">🔗</div>
+        <div style="font-weight:800;font-size:0.88rem;margin-bottom:3px;">Connected ideas</div>
+        <div style="font-size:0.75rem;color:#94a3b8;">Simple and compound sentences</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📋 Steps to write your paragraph</div>
+      <div class="step-row">
+        <div class="step-badge">1</div>
+        <div class="step-content">
+          <div class="step-label">Think</div>
+          <div class="step-desc">What do you know about your celestial object? Use the Celestial Objects tab for ideas.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-badge">2</div>
+        <div class="step-content">
+          <div class="step-label">Build noun groups</div>
+          <div class="step-desc">Choose your nouns and add describing words. Example: the <em>enormous, blazing Sun</em>.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-badge">3</div>
+        <div class="step-content">
+          <div class="step-label">Build verb groups</div>
+          <div class="step-desc">Choose your verbs and add words to show how. Example: <em>shines brilliantly every day</em>.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-badge">4</div>
+        <div class="step-content">
+          <div class="step-label">Write 3 to 5 sentences</div>
+          <div class="step-desc">Mix simple and compound sentences. Use different sentence starters.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-badge">5</div>
+        <div class="step-content">
+          <div class="step-label">Read it back</div>
+          <div class="step-desc">Does it make sense? Is it interesting? Then move on to editing!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✨ Example paragraph about the Moon</div>
+      <div class="model-para">
+        The <span class="hl-teal">rocky, grey Moon</span> <span class="hl-gold">orbits Earth slowly every month</span>. It is covered in deep craters <span class="hl-purple">and</span> it has no air or water. The <span class="hl-teal">cold, dusty surface</span> <span class="hl-gold">reflects sunlight from the Sun</span>. We can see the Moon at night <span class="hl-purple">because</span> it glows with reflected light. The Moon <span class="hl-gold">rises and sets in the sky</span> just like the Sun.
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+        <span class="pill pill-teal">Noun groups</span>
+        <span class="pill pill-gold">Verb groups</span>
+        <span class="pill pill-purple">Conjunctions</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🚀 Sentence starter ideas</div>
+      <div class="word-bank">
+        <span class="word-chip">The [object] is...</span>
+        <span class="word-chip">It has...</span>
+        <span class="word-chip">Scientists know...</span>
+        <span class="word-chip">The [adjective] [noun]...</span>
+        <span class="word-chip">Did you know...</span>
+        <span class="word-chip">One interesting fact is...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 6: EDITING -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section" id="section-editing">
+    <div class="sec-header sh-gold">✅ Editing Checklist</div>
+
+    <p style="font-size:0.85rem;color:#94a3b8;margin-bottom:12px;">Tap each circle to tick it off as you check your writing.</p>
+
+    <div id="progress-wrap" style="margin-bottom:14px;">
+      <div class="progress-bar-wrap"><div class="progress-bar" id="prog-bar" style="width:0%"></div></div>
+      <div class="progress-label" id="prog-label">0 of 11 checked</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="color:#2dd4bf;">✦ Meaning</div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>All my sentences are about the same celestial object.</span>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>My writing makes sense when I read it aloud.</span>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>I have written 3 or more sentences.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="color:var(--gold);">✦ Punctuation &amp; Capitals</div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>Every sentence starts with a <strong>capital letter</strong>.</span>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>Every sentence ends with a <strong>full stop</strong> or question mark.</span>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>Names like Sun, Moon and Earth have <strong>capital letters</strong>.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="color:#a78bfa;">✦ Word Choices</div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>I used a <strong>noun group</strong> with describing words.</span>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>I used a <strong>verb group</strong> to describe an action.</span>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>I replaced boring words like "nice" or "big" with better ones.</span>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>I used at least one conjunction (and, but, so, or, because).</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="color:#4ade80;">✦ Spelling</div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>I checked any words I was unsure of.</span>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-circle"></div>
+        <span>I used the word banks to help me spell space words.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔄 Upgrade these boring words</div>
+      <table class="upgrade-table">
+        <tr>
+          <td><span class="boring-word">big</span></td>
+          <td class="arrow">→</td>
+          <td><div class="word-bank"><span class="word-chip">enormous</span><span class="word-chip">vast</span><span class="word-chip">giant</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="boring-word">nice</span></td>
+          <td class="arrow">→</td>
+          <td><div class="word-bank"><span class="word-chip">brilliant</span><span class="word-chip">stunning</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="boring-word">goes</span></td>
+          <td class="arrow">→</td>
+          <td><div class="word-bank"><span class="word-chip">orbits</span><span class="word-chip">hurtles</span><span class="word-chip">travels</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="boring-word">shiny</span></td>
+          <td class="arrow">→</td>
+          <td><div class="word-bank"><span class="word-chip">blazing</span><span class="word-chip">glowing</span><span class="word-chip">radiant</span></div></td>
+        </tr>
+        <tr>
+          <td><span class="boring-word">said</span></td>
+          <td class="arrow">→</td>
+          <td><div class="word-bank"><span class="word-chip">described</span><span class="word-chip">explained</span><span class="word-chip">stated</span></div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const TOTAL_CHECKS = 11;
+
+  function showTab(name) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('section-' + name).classList.add('active');
+    document.getElementById('tab-' + name).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  let selectedObject = null;
+
+  function selectObject(id, card) {
+    document.querySelectorAll('.object-card').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.object-detail').forEach(d => d.classList.remove('show'));
+
+    if (selectedObject === id) {
+      selectedObject = null;
+      return;
+    }
+
+    selectedObject = id;
+    card.classList.add('selected');
+    const detail = document.getElementById('detail-' + id);
+    if (detail) {
+      detail.classList.add('show');
+      setTimeout(() => detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+    }
+  }
+
+  function toggleCheck(item) {
+    const circle = item.querySelector('.check-circle');
+    circle.classList.toggle('checked');
+    item.classList.toggle('done');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const checked = document.querySelectorAll('.check-circle.checked').length;
+    const pct = Math.round((checked / TOTAL_CHECKS) * 100);
+    document.getElementById('prog-bar').style.width = pct + '%';
+    document.getElementById('prog-label').textContent = checked + ' of ' + TOTAL_CHECKS + ' checked';
+  }
+</script>
+</body>
+</html>
